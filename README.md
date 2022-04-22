@@ -5,7 +5,7 @@ Software Engineer
 ## Work Experience
 
 - Sparty, inc. (2021-)
-- RevComm, inc. (2020-2021)
+- RevComm, inc. (2020-2020)
 - COLOPL, inc. (2016-2020)
 
 For more information, see [Wantedly](https://www.wantedly.com/id/takuma_kajikawa).
