@@ -2,6 +2,13 @@
 
 Software Engineer
 
+## Interest
+
+- DDD
+- TDD
+- Software architecture
+- UX design
+
 ## Work Experience
 
 - Sparty, inc. (2021-)
