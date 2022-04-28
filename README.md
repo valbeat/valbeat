@@ -6,7 +6,7 @@ Software Engineer
 
 - DDD
 - TDD
-- Software architecture
+- Web application architecture
 - UX design
 
 ## Work Experience
