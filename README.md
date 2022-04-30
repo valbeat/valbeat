@@ -5,7 +5,7 @@ Software Engineer
 ## Interest
 
 - Domain-Driven Design
-- Test Driven Development
+- Test-Driven Development
 - Database
 - Cache
 - UX design
