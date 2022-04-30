@@ -4,9 +4,10 @@ Software Engineer
 
 ## Interest
 
-- DDD
-- TDD
-- Web application architecture
+- Domain-Driven Design
+- Test Driven Development
+- Database
+- Cache
 - UX design
 
 ## Work Experience
