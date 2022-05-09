@@ -6,8 +6,7 @@ Software Engineer
 
 - Domain-Driven Design
 - Test-Driven Development
-- Database
-- Cache
+- System design
 - UX design
 
 ## Work Experience
