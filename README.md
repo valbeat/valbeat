@@ -1,6 +1,7 @@
 # 梶川 琢馬 / Takuma Kajikawa
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=valbeat&count_private=true&show_icons=true&theme=graywhite&hide_title=true&include_all_commits=true&hide_border=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=graywhite&langs_count=20&layout=compact)
 
-Software Engineer
 
 ## Interest
 
