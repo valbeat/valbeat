@@ -5,8 +5,8 @@
 
 ## Interest
 
-- Domain-Driven Design
-- Test-Driven Development
+- Domain Modeling
+- Data Modeling
 - System design
 - UX design
 
