@@ -12,7 +12,7 @@
 
 ## Work Experience
 
-- Sparty, inc. (2021-)
+- Sparty, inc. (2021-2022)
 - RevComm, inc. (2020-2020)
 - [COLOPL, inc.](https://github.com/colopl) (2016-2020)
 
