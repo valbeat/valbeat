@@ -12,9 +12,10 @@
 
 ## Work Experience
 
-- Sparty, inc. (2021-2022)
-- RevComm, inc. (2020-2020)
-- [COLOPL, inc.](https://github.com/colopl) (2016-2020)
+- Software Engineer, Backend and Frontend at Sparty, inc. (2021-2022)
+- Software Engineer, Full-stack at Freelance (2020-)
+- Software Engineer, Full-stack at RevComm, inc. (2020-2020)
+- Software Engineer, Server-side and Backend at [COLOPL, inc.](https://github.com/colopl) (2016-2020)
 
 For more information, see [Wantedly](https://www.wantedly.com/id/takuma_kajikawa).
 
