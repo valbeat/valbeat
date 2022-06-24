@@ -16,7 +16,8 @@
 - Software Engineer, Full-stack at Freelance (2020-)
 - Software Engineer, Full-stack at RevComm, inc. (2020-2020)
 - Software Engineer, Server-side and Backend at [COLOPL, inc.](https://github.com/colopl) (2016-2020)
-
+- Intern, Frontend at [teamLab Inc.](https://github.com/team-lab) (2012-2015)
+ 
 For more information, see [Wantedly](https://www.wantedly.com/id/takuma_kajikawa).
 
 ## Education
