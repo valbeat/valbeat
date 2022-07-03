@@ -22,4 +22,4 @@ For more information, see [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa
 
 ## Education
 - Bachelor of Engineering / Electronic and Mechanical Engineering Course / National Institute of Technology, Ishikawa College, Advanced Engineering Course (2014-2016)
-- Associate's Degree / Electronics and Information Engineering Course / National Institute of Technology, Ishikawa College (2009-2014)
+- Associate Degree of Engineering / Electronics and Information Engineering Course / National Institute of Technology, Ishikawa College (2009-2014)
