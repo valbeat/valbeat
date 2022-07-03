@@ -13,7 +13,6 @@
 ## Work Experience
 
 - Software Engineer, Backend and Frontend at [Sparty, inc.](https://github.com/Sparty-Inc) (2021-2022)
-- Software Engineer, Full-stack at Freelance (2020-)
 - Software Engineer, Full-stack at [RevComm, inc.](https://github.com/revcomm) (2020-2020)
 - Software Engineer, Server-side and Backend at [COLOPL, inc.](https://github.com/colopl) (2016-2020)
 - Software Engineer Intern, Frontend at [teamLab Inc.](https://github.com/team-lab) (2012-2015)
