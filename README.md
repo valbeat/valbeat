@@ -15,10 +15,7 @@
 
 ## Interest
 
-- Domain Modeling
-- Data Modeling
-- System design
-- UX design
+Domain Modeling / Data Modeling / System design / UX design
 
 ## Work Experience
 
