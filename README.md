@@ -13,10 +13,6 @@
   </picture>
 </p>
 
-## Interest
-
-Domain Modeling / Data Modeling / System design / UX design
-
 ## Work Experience
 
 - Software Engineer, Backend and Frontend at [Sparty, inc.](https://github.com/Sparty-Inc) (2021-2022)
