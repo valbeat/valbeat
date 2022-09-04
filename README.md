@@ -20,7 +20,7 @@
 - Software Engineer, Game development and infrastructure development at [COLOPL, inc.](https://github.com/colopl) (2016-2020)
 - Software Engineer Intern, Web frontend at [teamLab Inc.](https://github.com/team-lab) (2012-2015)
  
-For more information, see [Wantedly](https://www.wantedly.com/id/takuma_kajikawa) / [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986)
+For more information, see [Wantedly](https://www.wantedly.com/id/takuma_kajikawa) / [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986) / [LAPRAS](https://lapras.com/public/GWMZACW)
 
 ## Education
 - Bachelor of Engineering / Electronic and Mechanical Engineering Course / National Institute of Technology, Ishikawa College, Advanced Engineering Course (2014-2016)
