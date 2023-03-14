@@ -13,7 +13,7 @@
   </picture>
 </p>
 
-## Work Experience
+## Experience
 
 - Software Engineer, Web backend and frontend at [Sparty, inc.](https://github.com/Sparty-Inc) (2021-2022)
 - Software Engineer, Web full-stack at [RevComm, inc.](https://github.com/revcomm) (2020-2020)
