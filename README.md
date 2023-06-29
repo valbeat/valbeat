@@ -14,17 +14,8 @@
 </p>
 
 ## Experience
-
-- Software Engineer, Web backend and frontend at [Sparty, inc.](https://github.com/Sparty-Inc) (2021-2022)
-- Software Engineer, Web full-stack at [RevComm, inc.](https://github.com/revcomm) (2020-2020)
-- Software Engineer, Game development and infrastructure development at [COLOPL, inc.](https://github.com/colopl) (2016-2020)
-- Software Engineer Intern, Web frontend at [teamLab Inc.](https://github.com/team-lab) (2012-2015)
  
 For more information, see [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986) / [LAPRAS](https://lapras.com/public/GWMZACW)
-
-## Education
-- Bachelor of Engineering / Electronic and Mechanical Engineering Course / National Institute of Technology, Ishikawa College, Advanced Engineering Course (2014-2016)
-- Associate Degree of Engineering / Electronics and Information Engineering Course / National Institute of Technology, Ishikawa College (2009-2014)
 
 ## Contacts
 Please DM me [Facebook](https://www.facebook.com/kajitack) or [Twitter](https://twitter.com/kajitack)
