@@ -1,5 +1,4 @@
 # Takuma Kajikawa / 梶川 琢馬 🦄 
-## Stats
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=valbeat&count_private=true&show_icons=true&theme=gotham&hide_title=true&include_all_commits=true&hide_border=true&line_height=24">
