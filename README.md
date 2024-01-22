@@ -15,6 +15,3 @@
 ## Experience
  
 For more information, see [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986) / [LAPRAS](https://lapras.com/public/GWMZACW)
-
-## Contacts
-Please DM me [Facebook](https://www.facebook.com/kajitack) or [Twitter](https://twitter.com/kajitack)
