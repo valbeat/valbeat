@@ -12,6 +12,4 @@
   </picture>
 </p>
 
-## Experience
- 
 For more information, see [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986) / [LAPRAS](https://lapras.com/public/GWMZACW)
