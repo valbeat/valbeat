@@ -12,4 +12,6 @@
   </picture>
 </p>
 
+[![@valbeat's Holopin profile](https://holopin.me/valbeat)](https://holopin.io/@valbeat)
+
 For more information, see [LinkedIn](https://www.linkedin.com/in/takuma-kajikawa-bb2b4986) / [LAPRAS](https://lapras.com/public/GWMZACW)
