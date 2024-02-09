@@ -1,3 +1,5 @@
+name: camo purge
+
 on:
   workflow_dispatch:
   schedule:
