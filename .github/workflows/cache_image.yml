@@ -24,5 +24,6 @@ jobs:
           git push
   purge-camo:
     runs-on: ubuntu-latest
+    needs: cache-image
     steps:
       - uses: koki-develop/hub-purge-action@v1
