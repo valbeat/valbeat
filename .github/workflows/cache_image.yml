@@ -22,8 +22,3 @@ jobs:
           git add ./images/github-readme-stats.svg
           git commit -m "Update cached image" || exit 0
           git push
-  purge-camo:
-    runs-on: ubuntu-latest
-    needs: cache-image
-    steps:
-      - uses: koki-develop/hub-purge-action@v1
