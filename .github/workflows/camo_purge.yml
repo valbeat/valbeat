@@ -1,0 +1,11 @@
+name: Camo purge
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' 
+jobs:
+  purge-camo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: koki-develop/hub-purge-action@v1
