@@ -3,7 +3,7 @@ name: Download images
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' 
+    - cron: '0 0 * * *'
 jobs:
   cache-image:
     runs-on: ubuntu-latest
@@ -13,12 +13,37 @@ jobs:
       - name: Config
         run: |
           git config --global user.email "kj1ktk@gmail.com"
-          git config --global user.name "Takuma Kajikawa"      
+          git config --global user.name "Takuma Kajikawa"
       - name: Download images
         run: |
-          curl -o ./images/github-readme-stats/api.svg 'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham'
-          curl -o ./images/github-readme-stats/top-langs.svg 'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,objective-c&size_weight=0.45&count_weight=0.55'
-          curl -o ./images/holopin/badges.png 'https://holopin.me/valbeat'
+          mkdir -p ./images/github-readme-stats
+          
+          # GitHub Stats
+          echo "Downloading GitHub Stats..."
+          if ! curl -s -o ./images/github-readme-stats/api.svg -w "%{http_code}" \
+            'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham' \
+            | grep -q "200"; then
+            echo "Error: Failed to download GitHub Stats image"
+            exit 1
+          fi
+          
+          # Top Langs
+          echo "Downloading Top Langs..."
+          if ! curl -s -o ./images/github-readme-stats/top-langs.svg -w "%{http_code}" \
+            'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,objective-c&size_weight=0.45&count_weight=0.55' \
+            | grep -q "200"; then
+            echo "Error: Failed to download Top Langs image"
+            exit 1
+          fi
+          
+          # Holopin Badges
+          echo "Downloading Holopin Badges..."
+          if ! curl -s -o ./images/holopin/badges.png -w "%{http_code}" \
+            'https://holopin.me/valbeat' | grep -q "200"; then
+            echo "Error: Failed to download Holopin Badges image"
+            exit 1
+          fi
+
       - name: Commit and push if there's a change
         run: |
           git add ./images
