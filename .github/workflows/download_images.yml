@@ -16,8 +16,6 @@ jobs:
           git config --global user.name "Takuma Kajikawa"
       - name: Download images
         run: |
-          mkdir -p ./images/github-readme-stats
-          
           # GitHub Stats
           echo "Downloading GitHub Stats..."
           if ! curl -s -o ./images/github-readme-stats/api.svg -w "%{http_code}" \
