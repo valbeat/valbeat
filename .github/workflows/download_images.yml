@@ -8,8 +8,6 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    outputs:
-      commit_sha: ${{ steps.commit.outputs.sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -17,79 +15,68 @@ jobs:
         run: |
           git config --global user.email "kj1ktk@gmail.com"
           git config --global user.name "Takuma Kajikawa"
-      - name: Commit SHA
-        id: commit
-        run: echo "::set-output name=sha::$(git rev-parse HEAD)"
 
   download-github-stats:
     needs: setup
     runs-on: ubuntu-latest
-    outputs:
-      success: ${{ steps.check.outputs.status }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Download GitHub Stats
-        id: check
         run: |
           echo "Downloading GitHub Stats..."
-          if curl -s -o ./images/github-readme-stats/api.svg -w "%{http_code}" \
-            'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham' \
-            | grep -q "200"; then
-            echo "::set-output name=status::success"
-          else
-            echo "Error: Failed to download GitHub Stats image"
-            echo "::set-output name=status::failed"
-          fi
+          curl -s -o ./github-readme-stats-api.svg \
+            'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham'
+      - name: Upload GitHub Stats
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-stats
+          path: ./github-readme-stats-api.svg
 
   download-top-langs:
     needs: setup
     runs-on: ubuntu-latest
-    outputs:
-      success: ${{ steps.check.outputs.status }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Download Top Langs
-        id: check
         run: |
           echo "Downloading Top Langs..."
-          if curl -s -o ./images/github-readme-stats/top-langs.svg -w "%{http_code}" \
-            'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,objective-c&size_weight=0.45&count_weight=0.55' \
-            | grep -q "200"; then
-            echo "::set-output name=status::success"
-          else
-            echo "Error: Failed to download Top Langs image"
-            echo "::set-output name=status::failed"
-          fi
+          curl -s -o ./top-langs.svg \
+            'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,objective-c&size_weight=0.45&count_weight=0.55'
+      - name: Upload Top Langs
+        uses: actions/upload-artifact@v3
+        with:
+          name: top-langs
+          path: ./top-langs.svg
 
   download-holopin:
     needs: setup
     runs-on: ubuntu-latest
-    outputs:
-      success: ${{ steps.check.outputs.status }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Download Holopin Badges
-        id: check
         run: |
           echo "Downloading Holopin Badges..."
-          if curl -s -o ./images/holopin/badges.png -w "%{http_code}" \
-            'https://holopin.me/valbeat' | grep -q "200"; then
-            echo "::set-output name=status::success"
-          else
-            echo "Error: Failed to download Holopin Badges image"
-            echo "::set-output name=status::failed"
-          fi
+          curl -s -o ./holopin-badges.png \
+            'https://holopin.me/valbeat'
+      - name: Upload Holopin Badges
+        uses: actions/upload-artifact@v3
+        with:
+          name: holopin
+          path: ./holopin-badges.png
 
   commit-and-push:
     needs: [download-github-stats, download-top-langs, download-holopin]
     runs-on: ubuntu-latest
-    if: always()
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: ./images
       - name: Commit and Push Changes
         run: |
           git add ./images
