@@ -6,18 +6,7 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Config (Global Git Settings)
-        run: |
-          git config --global user.email "kj1ktk@gmail.com"
-          git config --global user.name "Takuma Kajikawa"
-
   download-github-stats:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -34,7 +23,6 @@ jobs:
           path: ./github-readme-stats-api.svg
 
   download-top-langs:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -51,7 +39,6 @@ jobs:
           path: ./top-langs.svg
 
   download-holopin:
-    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -77,10 +64,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: ./images
-      - name: Config Git User
+      - name: Config Git User (Local)
         run: |
-          git config --global user.email "kj1ktk@gmail.com"
-          git config --global user.name "Takuma Kajikawa"
+          git config --local user.email "kj1ktk@gmail.com"
+          git config --local user.name "Takuma Kajikawa"
       - name: Commit and Push Changes
         run: |
           git add ./images
