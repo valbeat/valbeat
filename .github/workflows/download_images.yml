@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Config
+      - name: Config (Global Git Settings)
         run: |
           git config --global user.email "kj1ktk@gmail.com"
           git config --global user.name "Takuma Kajikawa"
@@ -77,6 +77,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: ./images
+      - name: Config Git User
+        run: |
+          git config --global user.email "kj1ktk@gmail.com"
+          git config --global user.name "Takuma Kajikawa"
       - name: Commit and Push Changes
         run: |
           git add ./images
