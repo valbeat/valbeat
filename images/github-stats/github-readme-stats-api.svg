@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma Kajikawa's GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 30, Total Commits in 2025 : 5724, Total PRs: 2492, Total PRs Reviewed: 2655, Total Issues: 262, Contributed to (last year): 12</desc>
+        <desc id="descId">Total Stars Earned: 30, Total Commits in 2025 : 5729, Total PRs: 2493, Total PRs Reviewed: 2659, Total Issues: 262, Contributed to (last year): 12</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 44.839141904917;
+        stroke-dashoffset: 44.83914181625541;
       }
     }
   
