@@ -1,4 +1,4 @@
-# Takuma Kajikawa / 梶川 琢馬 🦄 
+# Takuma Kajikawa / 梶川 琢馬 🦄 
 
 <img alt="stats" height="140px" src="./images/github-readme-stats/api.svg?raw=true" /><img alt="top langs" height="140px" src="./images/github-readme-stats/top-langs.svg?raw=true" />
 
