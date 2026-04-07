@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma Kajikawa's GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 38, Total Commits in 2026 : 7142, Total PRs: 3689, Total PRs Reviewed: 1214, Total Issues: 803, Contributed to (last year): 57</desc>
+        <desc id="descId">Total Stars Earned: 38, Total Commits in 2026 : 7281, Total PRs: 3697, Total PRs Reviewed: 1291, Total Issues: 813, Contributed to (last year): 61</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 40.73946041887773;
+        stroke-dashoffset: 40.73946037761205;
       }
     }
   
@@ -163,7 +163,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >7.1k</text>
+      >7.3k</text>
     </g>
   </g><g transform="translate(0, 48)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -193,7 +193,7 @@
         x="219.01"
         y="12.5"
         data-testid="reviews"
-      >1.2k</text>
+      >1.3k</text>
     </g>
   </g><g transform="translate(0, 96)">
     <g class="stagger" style="animation-delay: 1050ms" transform="translate(25, 0)">
@@ -208,7 +208,7 @@
         x="219.01"
         y="12.5"
         data-testid="issues"
-      >803</text>
+      >813</text>
     </g>
   </g><g transform="translate(0, 120)">
     <g class="stagger" style="animation-delay: 1200ms" transform="translate(25, 0)">
@@ -223,7 +223,7 @@
         x="219.01"
         y="12.5"
         data-testid="contribs"
-      >57</text>
+      >61</text>
     </g>
   </g>
     </svg>
