@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
+concurrency:
+  group: download-images
+  cancel-in-progress: false
+
 jobs:
   download-github-stats:
     runs-on: ubuntu-latest
@@ -76,4 +80,8 @@ jobs:
             exit 0
           fi
           git commit -m "Update cached images"
-          git push
+          for i in 1 2 3; do
+            git push && break
+            echo "Push failed, retrying after rebase ($i)..."
+            git pull --rebase
+          done
