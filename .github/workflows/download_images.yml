@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "Downloading Top Langs..."
           curl -s -o ./top-langs.svg \
-            'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,objective-c&size_weight=0.40&count_weight=0.60'
+            'https://github-readme-stats.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css&size_weight=0.35&count_weight=0.65'
       - name: Upload Top Langs
         uses: actions/upload-artifact@v4
         with:
