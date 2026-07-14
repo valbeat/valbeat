@@ -43,7 +43,7 @@ jobs:
         run: |
           echo "Downloading Top Langs..."
           curl -s -o ./top-langs.svg \
-            'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css&size_weight=0.45&count_weight=0.55'
+            'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.45&count_weight=0.55'
       - name: Validate Top Langs SVG
         run: |
           if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./top-langs.svg')" && grep -q '<svg' ./top-langs.svg; then
