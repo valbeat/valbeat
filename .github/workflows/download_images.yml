@@ -18,32 +18,43 @@ jobs:
       - name: Download GitHub Stats
         run: |
           echo "Downloading GitHub Stats..."
-          for i in 1 2 3; do
-            http_code=$(curl -sS -o ./github-readme-stats-api.svg -w '%{http_code}' \
-              'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham' || echo 000)
-            # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
-            if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' ./github-readme-stats-api.svg; then
-              echo "Download succeeded (attempt $i)."
-              break
-            fi
-            echo "Attempt $i failed (HTTP $http_code); retrying..."
-            sleep 15
-          done
+          download() {
+            for i in 1 2 3; do
+              http_code=$(curl -sS -o "$2" -w '%{http_code}' "$1" || echo 000)
+              # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
+              if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' "$2"; then
+                echo "$2: download succeeded (attempt $i)."
+                return 0
+              fi
+              echo "$2: attempt $i failed (HTTP $http_code); retrying..."
+              sleep 15
+            done
+            return 1
+          }
+          BASE='https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews'
+          download "${BASE}&theme=gotham" ./github-readme-stats-api-dark.svg || true
+          download "${BASE}&theme=default" ./github-readme-stats-api-light.svg || true
       - name: Validate GitHub Stats SVG
         run: |
-          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./github-readme-stats-api.svg')" \
-            && grep -q '<svg' ./github-readme-stats-api.svg \
-            && ! grep -q 'Something went wrong' ./github-readme-stats-api.svg; then
-            echo "Downloaded SVG looks valid."
-          else
-            echo "::warning::Downloaded github-readme-stats-api.svg is invalid or an error card; keeping previous version."
-            cp ./images/github-stats/github-readme-stats-api.svg ./github-readme-stats-api.svg
-          fi
+          validate() {
+            if python3 -c "import xml.dom.minidom, sys; xml.dom.minidom.parse(sys.argv[1])" "$1" \
+              && grep -q '<svg' "$1" \
+              && ! grep -q 'Something went wrong' "$1"; then
+              echo "$1 looks valid."
+            else
+              echo "::warning::$1 is invalid or an error card; keeping previous version."
+              cp "$2" "$1"
+            fi
+          }
+          validate ./github-readme-stats-api-dark.svg ./images/github-stats/github-readme-stats-api-dark.svg
+          validate ./github-readme-stats-api-light.svg ./images/github-stats/github-readme-stats-api-light.svg
       - name: Upload GitHub Stats
         uses: actions/upload-artifact@v7
         with:
           name: github-stats
-          path: ./github-readme-stats-api.svg
+          path: |
+            ./github-readme-stats-api-dark.svg
+            ./github-readme-stats-api-light.svg
 
   download-top-langs:
     runs-on: ubuntu-latest
@@ -53,32 +64,43 @@ jobs:
       - name: Download Top Langs
         run: |
           echo "Downloading Top Langs..."
-          for i in 1 2 3; do
-            http_code=$(curl -sS -o ./top-langs.svg -w '%{http_code}' \
-              'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.7&count_weight=0.3' || echo 000)
-            # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
-            if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' ./top-langs.svg; then
-              echo "Download succeeded (attempt $i)."
-              break
-            fi
-            echo "Attempt $i failed (HTTP $http_code); retrying..."
-            sleep 15
-          done
+          download() {
+            for i in 1 2 3; do
+              http_code=$(curl -sS -o "$2" -w '%{http_code}' "$1" || echo 000)
+              # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
+              if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' "$2"; then
+                echo "$2: download succeeded (attempt $i)."
+                return 0
+              fi
+              echo "$2: attempt $i failed (HTTP $http_code); retrying..."
+              sleep 15
+            done
+            return 1
+          }
+          BASE='https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.7&count_weight=0.3'
+          download "${BASE}&theme=gotham" ./top-langs-dark.svg || true
+          download "${BASE}&theme=default" ./top-langs-light.svg || true
       - name: Validate Top Langs SVG
         run: |
-          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./top-langs.svg')" \
-            && grep -q '<svg' ./top-langs.svg \
-            && ! grep -q 'Something went wrong' ./top-langs.svg; then
-            echo "Downloaded SVG looks valid."
-          else
-            echo "::warning::Downloaded top-langs.svg is invalid or an error card; keeping previous version."
-            cp ./images/top-langs/top-langs.svg ./top-langs.svg
-          fi
+          validate() {
+            if python3 -c "import xml.dom.minidom, sys; xml.dom.minidom.parse(sys.argv[1])" "$1" \
+              && grep -q '<svg' "$1" \
+              && ! grep -q 'Something went wrong' "$1"; then
+              echo "$1 looks valid."
+            else
+              echo "::warning::$1 is invalid or an error card; keeping previous version."
+              cp "$2" "$1"
+            fi
+          }
+          validate ./top-langs-dark.svg ./images/top-langs/top-langs-dark.svg
+          validate ./top-langs-light.svg ./images/top-langs/top-langs-light.svg
       - name: Upload Top Langs
         uses: actions/upload-artifact@v7
         with:
           name: top-langs
-          path: ./top-langs.svg
+          path: |
+            ./top-langs-dark.svg
+            ./top-langs-light.svg
 
   download-holopin:
     runs-on: ubuntu-latest
