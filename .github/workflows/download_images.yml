@@ -55,7 +55,7 @@ jobs:
           echo "Downloading Top Langs..."
           for i in 1 2 3; do
             http_code=$(curl -sS -o ./top-langs.svg -w '%{http_code}' \
-              'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.5&count_weight=0.5' || echo 000)
+              'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.7&count_weight=0.3' || echo 000)
             # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
             if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' ./top-langs.svg; then
               echo "Download succeeded (attempt $i)."
