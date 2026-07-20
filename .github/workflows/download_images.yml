@@ -18,14 +18,25 @@ jobs:
       - name: Download GitHub Stats
         run: |
           echo "Downloading GitHub Stats..."
-          curl -s -o ./github-readme-stats-api.svg \
-            'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham'
+          for i in 1 2 3; do
+            http_code=$(curl -sS -o ./github-readme-stats-api.svg -w '%{http_code}' \
+              'https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&theme=gotham' || echo 000)
+            # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
+            if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' ./github-readme-stats-api.svg; then
+              echo "Download succeeded (attempt $i)."
+              break
+            fi
+            echo "Attempt $i failed (HTTP $http_code); retrying..."
+            sleep 15
+          done
       - name: Validate GitHub Stats SVG
         run: |
-          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./github-readme-stats-api.svg')" && grep -q '<svg' ./github-readme-stats-api.svg; then
+          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./github-readme-stats-api.svg')" \
+            && grep -q '<svg' ./github-readme-stats-api.svg \
+            && ! grep -q 'Something went wrong' ./github-readme-stats-api.svg; then
             echo "Downloaded SVG looks valid."
           else
-            echo "::warning::Downloaded github-readme-stats-api.svg does not look like valid SVG; keeping previous version."
+            echo "::warning::Downloaded github-readme-stats-api.svg is invalid or an error card; keeping previous version."
             cp ./images/github-stats/github-readme-stats-api.svg ./github-readme-stats-api.svg
           fi
       - name: Upload GitHub Stats
@@ -42,14 +53,25 @@ jobs:
       - name: Download Top Langs
         run: |
           echo "Downloading Top Langs..."
-          curl -s -o ./top-langs.svg \
-            'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css&size_weight=0.6&count_weight=0.4'
+          for i in 1 2 3; do
+            http_code=$(curl -sS -o ./top-langs.svg -w '%{http_code}' \
+              'https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&theme=gotham&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.7&count_weight=0.3' || echo 000)
+            # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
+            if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' ./top-langs.svg; then
+              echo "Download succeeded (attempt $i)."
+              break
+            fi
+            echo "Attempt $i failed (HTTP $http_code); retrying..."
+            sleep 15
+          done
       - name: Validate Top Langs SVG
         run: |
-          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./top-langs.svg')" && grep -q '<svg' ./top-langs.svg; then
+          if python3 -c "import xml.dom.minidom; xml.dom.minidom.parse('./top-langs.svg')" \
+            && grep -q '<svg' ./top-langs.svg \
+            && ! grep -q 'Something went wrong' ./top-langs.svg; then
             echo "Downloaded SVG looks valid."
           else
-            echo "::warning::Downloaded top-langs.svg does not look like valid SVG; keeping previous version."
+            echo "::warning::Downloaded top-langs.svg is invalid or an error card; keeping previous version."
             cp ./images/top-langs/top-langs.svg ./top-langs.svg
           fi
       - name: Upload Top Langs
@@ -66,8 +88,8 @@ jobs:
       - name: Download Holopin Badges
         run: |
           echo "Downloading Holopin Badges..."
-          curl -s -o ./holopin-badges.png \
-            'https://holopin.me/valbeat'
+          curl -sSf --retry 3 --retry-all-errors -o ./holopin-badges.png \
+            'https://holopin.me/valbeat' || echo "::warning::Holopin download failed."
       - name: Validate Holopin Badges PNG
         run: |
           if file -b ./holopin-badges.png | grep -qi 'PNG image data'; then
