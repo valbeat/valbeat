@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma Kajikawa's GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 39, Total Commits in 2026 : 10763, Total PRs: 4717, Total PRs Reviewed: 1540, Total Issues: 1360, Contributed to (last year): 84</desc>
+        <desc id="descId">Total Stars Earned: 37, Total Commits in 2026 : 1186, Total PRs: 351, Total PRs Reviewed: 352, Total Issues: 63, Contributed to (last year): 23</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -55,7 +55,7 @@
       opacity: 0.2;
     }
     .rank-circle {
-      stroke-dashoffset: 40.3115961209746;
+      stroke-dashoffset: 46.44892664476344;
       stroke: #2f80ed;
       stroke-dasharray: 250;
       fill: none;
@@ -71,7 +71,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 40.3115961209746;
+        stroke-dashoffset: 46.44892664476344;
       }
     }
   
@@ -96,7 +96,7 @@
         }
       }
     
-          
+          * { animation-duration: 0s !important; animation-delay: 0s !important; }
         </style>
 
         
@@ -146,7 +146,7 @@
         x="219.01"
         y="12.5"
         data-testid="stars"
-      >39</text>
+      >37</text>
     </g>
   </g><g transform="translate(0, 24)">
     <g class="stagger" transform="translate(25, 0)">
@@ -161,7 +161,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >10.8k</text>
+      >1.2k</text>
     </g>
   </g><g transform="translate(0, 48)">
     <g class="stagger" transform="translate(25, 0)">
@@ -176,7 +176,7 @@
         x="219.01"
         y="12.5"
         data-testid="prs"
-      >4.7k</text>
+      >351</text>
     </g>
   </g><g transform="translate(0, 72)">
     <g class="stagger" transform="translate(25, 0)">
@@ -191,7 +191,7 @@
         x="219.01"
         y="12.5"
         data-testid="reviews"
-      >1.5k</text>
+      >352</text>
     </g>
   </g><g transform="translate(0, 96)">
     <g class="stagger" transform="translate(25, 0)">
@@ -206,7 +206,7 @@
         x="219.01"
         y="12.5"
         data-testid="issues"
-      >1.4k</text>
+      >63</text>
     </g>
   </g><g transform="translate(0, 120)">
     <g class="stagger" transform="translate(25, 0)">
@@ -221,7 +221,7 @@
         x="219.01"
         y="12.5"
         data-testid="contribs"
-      >84</text>
+      >23</text>
     </g>
   </g>
     </svg>
