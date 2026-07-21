@@ -10,31 +10,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  download-github-stats:
+  generate-cards:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-      - name: Download GitHub Stats
-        run: |
-          echo "Downloading GitHub Stats..."
-          download() {
-            for i in 1 2 3; do
-              http_code=$(curl -sS -o "$2" -w '%{http_code}' "$1" || echo 000)
-              # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
-              if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' "$2"; then
-                echo "$2: download succeeded (attempt $i)."
-                return 0
-              fi
-              echo "$2: attempt $i failed (HTTP $http_code); retrying..."
-              sleep 15
-            done
-            return 1
-          }
-          BASE='https://github-readme-stats-git-master-valbeat.vercel.app/api?username=valbeat&show_icons=true&hide_title=true&hide_border=true&line_height=24&show=reviews&disable_animations=true'
-          download "${BASE}&theme=gotham" ./github-readme-stats-api-dark.svg || true
-          download "${BASE}&theme=default" ./github-readme-stats-api-light.svg || true
-      - name: Validate GitHub Stats SVG
+      - name: Generate cards
+        # 生成失敗時も後続の validate が前回画像へフォールバックするため継続する
+        continue-on-error: true
+        uses: valbeat/github-readme-stats@master
+        with:
+          username: valbeat
+          output-dir: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate SVGs
         run: |
           validate() {
             if python3 -c "import xml.dom.minidom, sys; xml.dom.minidom.parse(sys.argv[1])" "$1" \
@@ -42,15 +34,19 @@ jobs:
               && ! grep -q 'Something went wrong' "$1"; then
               echo "$1 looks valid."
             else
-              echo "::warning::$1 is invalid or an error card; keeping previous version."
+              echo "::warning::$1 is missing, invalid, or an error card; keeping previous version."
               cp "$2" "$1"
             fi
           }
           validate ./github-readme-stats-api-dark.svg ./images/github-stats/github-readme-stats-api-dark.svg
           validate ./github-readme-stats-api-light.svg ./images/github-stats/github-readme-stats-api-light.svg
+          validate ./top-langs-dark.svg ./images/top-langs/top-langs-dark.svg
+          validate ./top-langs-light.svg ./images/top-langs/top-langs-light.svg
       - name: Strip animations
         run: |
-          python3 tools/strip_svg_animations.py ./github-readme-stats-api-dark.svg ./github-readme-stats-api-light.svg
+          python3 tools/strip_svg_animations.py \
+            ./github-readme-stats-api-dark.svg ./github-readme-stats-api-light.svg \
+            ./top-langs-dark.svg ./top-langs-light.svg
       - name: Upload GitHub Stats
         uses: actions/upload-artifact@v7
         with:
@@ -58,48 +54,6 @@ jobs:
           path: |
             ./github-readme-stats-api-dark.svg
             ./github-readme-stats-api-light.svg
-
-  download-top-langs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-      - name: Download Top Langs
-        run: |
-          echo "Downloading Top Langs..."
-          download() {
-            for i in 1 2 3; do
-              http_code=$(curl -sS -o "$2" -w '%{http_code}' "$1" || echo 000)
-              # エラーカードは HTTP 200 で返るため、ステータスコードだけでなく文言でも判定する
-              if [ "$http_code" = "200" ] && ! grep -q 'Something went wrong' "$2"; then
-                echo "$2: download succeeded (attempt $i)."
-                return 0
-              fi
-              echo "$2: attempt $i failed (HTTP $http_code); retrying..."
-              sleep 15
-            done
-            return 1
-          }
-          BASE='https://github-readme-stats-git-master-valbeat.vercel.app/api/top-langs/?username=valbeat&hide_title=true&layout=compact&hide_border=true&langs_count=10&hide=html,css,shell&size_weight=0.7&count_weight=0.3&disable_animations=true'
-          download "${BASE}&theme=gotham" ./top-langs-dark.svg || true
-          download "${BASE}&theme=default" ./top-langs-light.svg || true
-      - name: Validate Top Langs SVG
-        run: |
-          validate() {
-            if python3 -c "import xml.dom.minidom, sys; xml.dom.minidom.parse(sys.argv[1])" "$1" \
-              && grep -q '<svg' "$1" \
-              && ! grep -q 'Something went wrong' "$1"; then
-              echo "$1 looks valid."
-            else
-              echo "::warning::$1 is invalid or an error card; keeping previous version."
-              cp "$2" "$1"
-            fi
-          }
-          validate ./top-langs-dark.svg ./images/top-langs/top-langs-dark.svg
-          validate ./top-langs-light.svg ./images/top-langs/top-langs-light.svg
-      - name: Strip animations
-        run: |
-          python3 tools/strip_svg_animations.py ./top-langs-dark.svg ./top-langs-light.svg
       - name: Upload Top Langs
         uses: actions/upload-artifact@v7
         with:
@@ -133,7 +87,7 @@ jobs:
           path: ./holopin-badges.png
 
   commit-and-push:
-    needs: [download-github-stats, download-top-langs, download-holopin]
+    needs: [generate-cards, download-holopin]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
