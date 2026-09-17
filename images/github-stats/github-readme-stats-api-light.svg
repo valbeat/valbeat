@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma Kajikawa's GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 37, Total Commits in 2026 : 1187, Total PRs: 351, Total PRs Reviewed: 352, Total Issues: 63, Contributed to (last year): 17</desc>
+        <desc id="descId">Total Stars Earned: 37, Total Commits in 2026 : 1252, Total PRs: 422, Total PRs Reviewed: 362, Total Issues: 64, Contributed to (last year): 20</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -55,7 +55,7 @@
       opacity: 0.2;
     }
     .rank-circle {
-      stroke-dashoffset: 46.443733061634035;
+      stroke-dashoffset: 45.69168506421461;
       stroke: #2f80ed;
       stroke-dasharray: 250;
       fill: none;
@@ -71,7 +71,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 46.443733061634035;
+        stroke-dashoffset: 45.69168506421461;
       }
     }
   
@@ -161,7 +161,7 @@
         x="219.01"
         y="12.5"
         data-testid="commits"
-      >1.2k</text>
+      >1.3k</text>
     </g>
   </g><g transform="translate(0, 48)">
     <g class="stagger" transform="translate(25, 0)">
@@ -176,7 +176,7 @@
         x="219.01"
         y="12.5"
         data-testid="prs"
-      >351</text>
+      >422</text>
     </g>
   </g><g transform="translate(0, 72)">
     <g class="stagger" transform="translate(25, 0)">
@@ -191,7 +191,7 @@
         x="219.01"
         y="12.5"
         data-testid="reviews"
-      >352</text>
+      >362</text>
     </g>
   </g><g transform="translate(0, 96)">
     <g class="stagger" transform="translate(25, 0)">
@@ -206,7 +206,7 @@
         x="219.01"
         y="12.5"
         data-testid="issues"
-      >63</text>
+      >64</text>
     </g>
   </g><g transform="translate(0, 120)">
     <g class="stagger" transform="translate(25, 0)">
@@ -221,7 +221,7 @@
         x="219.01"
         y="12.5"
         data-testid="contribs"
-      >17</text>
+      >20</text>
     </g>
   </g>
     </svg>
