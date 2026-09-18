@@ -24,7 +24,7 @@ jobs:
         with:
           username: valbeat
           output-dir: .
-          hide-langs: html,css,shell,makefile
+          hide-langs: html,css,shell,makefile,objective-c
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Validate SVGs
