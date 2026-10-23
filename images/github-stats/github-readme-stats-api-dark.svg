@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Takuma Kajikawa's GitHub Stats, Rank: A</title>
-        <desc id="descId">Total Stars Earned: 36, Total Commits in 2026 : 1342, Total PRs: 464, Total PRs Reviewed: 396, Total Issues: 65, Contributed to (last year): 21</desc>
+        <desc id="descId">Total Stars Earned: 36, Total Commits in 2026 : 1343, Total PRs: 464, Total PRs Reviewed: 400, Total Issues: 65, Contributed to (last year): 25</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -55,7 +55,7 @@
       opacity: 0.2;
     }
     .rank-circle {
-      stroke-dashoffset: 45.63172689427853;
+      stroke-dashoffset: 45.628356937195285;
       stroke: #2aa889;
       stroke-dasharray: 250;
       fill: none;
@@ -71,7 +71,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 45.63172689427853;
+        stroke-dashoffset: 45.628356937195285;
       }
     }
   
@@ -191,7 +191,7 @@
         x="219.01"
         y="12.5"
         data-testid="reviews"
-      >396</text>
+      >400</text>
     </g>
   </g><g transform="translate(0, 96)">
     <g class="stagger" transform="translate(25, 0)">
@@ -221,7 +221,7 @@
         x="219.01"
         y="12.5"
         data-testid="contribs"
-      >21</text>
+      >25</text>
     </g>
   </g>
     </svg>
