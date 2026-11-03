@@ -112,7 +112,7 @@
           data-testid="lang-progress"
           x="0"
           y="0"
-          width="54.26"
+          width="54.25"
           height="8"
           fill="#555555"
         />
@@ -120,7 +120,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="54.26"
+          x="54.25"
           y="0"
           width="49.35"
           height="8"
@@ -130,9 +130,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="103.61"
+          x="103.6"
           y="0"
-          width="31.23"
+          width="31.22"
           height="8"
           fill="#f34b7d"
         />
@@ -140,7 +140,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="134.84"
+          x="134.82"
           y="0"
           width="20.68"
           height="8"
@@ -150,9 +150,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="155.52"
+          x="155.5"
           y="0"
-          width="18.17"
+          width="18.16"
           height="8"
           fill="#199f4b"
         />
@@ -160,9 +160,9 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="173.69"
+          x="173.66"
           y="0"
-          width="17.91"
+          width="17.94"
           height="8"
           fill="#7e7eff"
         />
@@ -192,7 +192,7 @@
           data-testid="lang-progress"
           x="224.34"
           y="0"
-          width="14.9"
+          width="14.89"
           height="8"
           fill="#00ADD8"
         />
@@ -200,7 +200,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="239.24"
+          x="239.23000000000002"
           y="0"
           width="10.76"
           height="8"
@@ -248,7 +248,7 @@
     <g class="stagger">
       <circle cx="5" cy="6" r="5" fill="#7e7eff" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Nix 7.17%
+        Nix 7.18%
       </text>
     </g>
   </g><g transform="translate(0, 25)">
